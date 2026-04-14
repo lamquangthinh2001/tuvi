@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chi tiết Lá số - Thiên Cơ</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Be+Vietnam+Pro:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#574500",
+                    "tertiary-fixed-dim": "#88d982",
+                    "secondary-fixed-dim": "#e9c349",
+                    "on-tertiary-fixed": "#002204",
+                    "on-tertiary-container": "#d8ffd0",
+                    "on-error-container": "#ffdad6",
+                    "on-surface": "#e5e2e1",
+                    "on-secondary-fixed": "#241a00",
+                    "surface-tint": "#ffb3ac",
+                    "tertiary-container": "#307f34",
+                    "secondary": "#e9c349",
+                    "error-container": "#93000a",
+                    "on-primary-fixed-variant": "#930010",
+                    "on-primary-fixed": "#410003",
+                    "surface-variant": "#353534",
+                    "primary-container": "#d32f2f",
+                    "on-secondary-container": "#342800",
+                    "error": "#ffb4ab",
+                    "surface-container-low": "#1c1b1b",
+                    "tertiary": "#88d982",
+                    "surface-container-highest": "#353534",
+                    "secondary-fixed": "#ffe088",
+                    "primary-fixed-dim": "#ffb3ac",
+                    "inverse-primary": "#ba1a20",
+                    "on-tertiary": "#003909",
+                    "primary-fixed": "#ffdad6",
+                    "tertiary-fixed": "#a3f69c",
+                    "surface": "#131313",
+                    "on-surface-variant": "#e4beba",
+                    "outline-variant": "#5b403d",
+                    "on-error": "#690005",
+                    "on-secondary": "#3c2f00",
+                    "on-tertiary-fixed-variant": "#005312",
+                    "on-primary": "#680008",
+                    "surface-bright": "#393939",
+                    "background": "#131313",
+                    "surface-container-lowest": "#0e0e0e",
+                    "surface-container-high": "#2a2a2a",
+                    "surface-dim": "#131313",
+                    "inverse-surface": "#e5e2e1",
+                    "outline": "#ab8985",
+                    "on-primary-container": "#fff2f0",
+                    "on-background": "#e5e2e1",
+                    "inverse-on-surface": "#313030",
+                    "secondary-container": "#af8d11",
+                    "surface-container": "#201f1f",
+                    "primary": "#ffb3ac"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Be Vietnam Pro"]
+            }
+          },
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .palace-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            gap: 2px;
+            aspect-ratio: 1 / 1;
+        }
+        .glass-panel {
+            background: rgba(53, 53, 52, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body selection:bg-secondary/30">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#131313] flex items-center justify-between px-6 h-16 w-full bg-gradient-to-b from-[#131313] to-transparent">
+<button class="hover:opacity-80 transition-opacity active:scale-95 transition-transform text-[#e5e2e1]">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-['Manrope'] font-bold text-lg tracking-tight text-[#ffb3ac]">Chi tiết Lá số</h1>
+<button class="hover:opacity-80 transition-opacity active:scale-95 transition-transform text-[#e5e2e1]">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</header>
+<main class="pt-20 pb-32 px-4 max-w-5xl mx-auto">
+<!-- Profile Header Bento Section -->
+<section class="mb-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="md:col-span-2 p-6 rounded-xl bg-surface-container-low relative overflow-hidden flex flex-col justify-end min-h-[180px]">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<img class="w-full h-full object-cover" data-alt="Subtle golden traditional Vietnamese cloud and dragon motifs on a dark textured background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQ8E-4w1zM7GLfCRJIXQpN_H9kyPMON_0qSslJpF6sDebJs1lsS7tmyDE8uduY9fo3ykDh0CnqJr9DF-_VTjWyHHajCLpmubc6bpzFNmsa9NOi76pEYea6uOORJtOJfp0Sm2uuefda9nWw9MxWy6UE_Uzsur3oW-gCxrtXESatM2Cct8ImVLZMIQQObE6njy7ZICd8aLaReBuLqhqOKTD0hsI4krMHg_KBSRZf8kW2YBZWNJn7hVf7w4X7RFFYXH69m0Ajp003nHZL"/>
+</div>
+<div class="relative z-10">
+<div class="flex items-center gap-4 mb-2">
+<h2 class="text-3xl font-headline font-extrabold text-secondary tracking-tight">NGUYỄN TRƯỜNG AN</h2>
+<span class="px-3 py-1 rounded-sm bg-primary/20 text-primary text-[10px] font-bold uppercase tracking-widest border border-primary/30">NAM MỆNH</span>
+</div>
+<p class="text-on-surface-variant font-medium">Sinh ngày: 15/08/1994 (DL) — 09/07 Giáp Tuất (AL)</p>
+<p class="text-on-surface-variant text-sm mt-1">Giờ: Giáp Tuất (19:30) | Mệnh: Sơn Đầu Hỏa | Cục: Hỏa Lục Cục</p>
+</div>
+</div>
+<div class="p-6 rounded-xl bg-secondary-container/10 border border-secondary/20 flex flex-col justify-center items-center text-center">
+<span class="text-secondary text-xs font-bold uppercase tracking-widest mb-2">Bản Mệnh Chủ</span>
+<div class="w-16 h-16 rounded-full bg-secondary/20 flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-4xl text-secondary" data-icon="stars" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+<div class="text-xl font-headline font-bold text-on-surface">Tham Lang</div>
+<div class="text-sm text-tertiary font-medium">Đắc Địa</div>
+</div>
+</section>
+<!-- The 12 Palaces Grid (Desktop) -->
+<div class="hidden md:block mb-12">
+<div class="palace-grid bg-outline-variant/10 p-1 rounded-2xl">
+<!-- Row 1 -->
+<div class="bg-surface-container-low p-4 relative group hover:bg-surface-container-high transition-colors">
+<div class="absolute top-2 right-2 text-[10px] text-on-surface-variant font-bold">TỴ</div>
+<div class="text-xs font-bold text-secondary mb-2 uppercase">PHỤ MẪU</div>
+<div class="space-y-1">
+<div class="text-primary font-bold text-sm">Thiên Đồng</div>
+<div class="text-primary font-bold text-sm">Thiên Lương</div>
+<div class="pt-2 text-[9px] leading-tight text-on-surface/60">Hóa Khoa, Thiên Khôi, Đường Phù</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-4 relative group hover:bg-surface-container-high transition-colors">
+<div class="absolute top-2 right-2 text-[10px] text-on-surface-variant font-bold">NGỌ</div>
+<div class="text-xs font-bold text-on-surface-variant mb-2 uppercase">PHÚC ĐỨC</div>
+<div class="space-y-1">
+<div class="text-on-surface font-bold text-sm">Vũ Khúc</div>
+<div class="text-on-surface font-bold text-sm">Thiên Phủ</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-4 relative group hover:bg-surface-container-high transition-colors">
+<div class="absolute top-2 right-2 text-[10px] text-on-surface-variant font-bold">MÙI</div>
+<div class="text-xs font-bold text-on-surface-variant mb-2 uppercase">ĐIỀN TRẠCH</div>
+<div class="space-y-1">
+<div class="text-secondary font-bold text-sm">Thái Dương</div>
+<div class="text-secondary font-bold text-sm">Thái Âm</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-4 relative group hover:bg-surface-container-high transition-colors">
+<div class="absolute top-2 right-2 text-[10px] text-on-surface-variant font-bold">THÂN</div>
+<div class="text-xs font-bold text-on-surface-variant mb-2 uppercase">QUAN LỘ</div>
+<div class="space-y-1">
+<div class="text-tertiary font-bold text-sm">Tham Lang</div>
+</div>
+</div>
+<!-- Row 2 & 3 Center (The Core) -->
+<div class="bg-surface-container-low p-4 relative group hover:bg-surface-container-high transition-colors">
+<div class="absolute top-2 right-2 text-[10px] text-on-surface-variant font-bold">THÌN</div>
+<div class="text-xs font-bold text-on-surface-variant mb-2 uppercase">MỆNH</div>
+<div class="text-primary font-bold text-sm">Cự Môn</div>
+</div>
+<!-- Central Information Box -->
+<div class="col-span-2 row-span-2 bg-surface-container-lowest border border-outline-variant/20 flex flex-col items-center justify-center p-8 text-center relative overflow-hidden">
+<div class="absolute inset-0 opacity-5">
+<img class="w-full h-full object-contain" data-alt="Traditional Bagua octagonal symbol in minimalist line art with celestial star background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMnizbf5rbA6vPR-tECwlRYAI0umKYbXyIEiZu0WxE0gmz58SClQYkd9e1U0_Bn6FqpGnlZ--sx8GLGjHgjyndo5bZT9Q59unkA7aq7OuLKX9MHP9f8nmTXuqDxnLl0mChSdzXnc5oOekqvPY4nCL-N-98YHrHQm91QqCYY1-1wnOGt1xyv-py-7pAH6MIZ-D0kGLGsEvclzq9FGv-Ak9nZMLptmfQNyY1iKZ1rHSExHqFyf-wx_5ZSHFYYWkZ6-MLOdztdXQo_XAK"/>
+</div>
+<h3 class="font-headline text-4xl font-black text-secondary tracking-[0.2em] mb-4">LÁ SỐ</h3>
+<div class="grid grid-cols-2 gap-x-8 gap-y-2 text-[11px] font-medium tracking-wide uppercase">
+<div class="text-left text-on-surface-variant">Âm Dương: <span class="text-on-surface">Dương Nam</span></div>
+<div class="text-left text-on-surface-variant">Cục: <span class="text-on-surface">Hỏa Lục Cục</span></div>
+<div class="text-left text-on-surface-variant">Bản Mệnh: <span class="text-primary">Sơn Đầu Hỏa</span></div>
+<div class="text-left text-on-surface-variant">Thân: <span class="text-on-surface">Tại Di</span></div>
+</div>
+<div class="mt-6 flex gap-2">
+<span class="px-2 py-0.5 rounded-sm bg-tertiary/10 text-tertiary text-[9px] font-bold border border-tertiary/20">THUẬN LÝ</span>
+<span class="px-2 py-0.5 rounded-sm bg-primary/10 text-primary text-[9px] font-bold border border-primary/20">SINH XUẤT</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-4 relative group hover:bg-surface-container-high transition-colors">
+<div class="absolute top-2 right-2 text-[10px] text-on-surface-variant font-bold">DẬU</div>
+<div class="text-xs font-bold text-on-surface-variant mb-2 uppercase">NÔ BỘC</div>
+<div class="text-secondary font-bold text-sm">Thiên Cơ</div>
+<div class="text-secondary font-bold text-sm">Cự Môn</div>
+</div>
+<!-- Row 3 Side -->
+<div class="bg-surface-container-low p-4 relative group hover:bg-surface-container-high transition-colors">
+<div class="absolute top-2 right-2 text-[10px] text-on-surface-variant font-bold">MÃO</div>
+<div class="text-xs font-bold text-on-surface-variant mb-2 uppercase">HUYNH ĐỆ</div>
+<div class="text-tertiary font-bold text-sm">Liêm Trinh</div>
+<div class="text-tertiary font-bold text-sm">Thiên Tướng</div>
+</div>
+<div class="bg-surface-container-low p-4 relative group hover:bg-surface-container-high transition-colors">
+<div class="absolute top-2 right-2 text-[10px] text-on-surface-variant font-bold">TUẤT</div>
+<div class="text-xs font-bold text-on-surface-variant mb-2 uppercase">THIÊN DI</div>
+<div class="text-primary font-bold text-sm">Thất Sát</div>
+</div>
+<!-- Row 4 -->
+<div class="bg-surface-container-low p-4 relative group hover:bg-surface-container-high transition-colors">
+<div class="absolute top-2 right-2 text-[10px] text-on-surface-variant font-bold">DẦN</div>
+<div class="text-xs font-bold text-on-surface-variant mb-2 uppercase">PHU THÊ</div>
+<div class="text-on-surface font-bold text-sm">Tử Vi</div>
+</div>
+<div class="bg-surface-container-low p-4 relative group hover:bg-surface-container-high transition-colors">
+<div class="absolute top-2 right-2 text-[10px] text-on-surface-variant font-bold">SỬU</div>
+<div class="text-xs font-bold text-on-surface-variant mb-2 uppercase">TỬ TỨC</div>
+<div class="text-tertiary font-bold text-sm">Thiên Cơ</div>
+</div>
+<div class="bg-surface-container-low p-4 relative group hover:bg-surface-container-high transition-colors">
+<div class="absolute top-2 right-2 text-[10px] text-on-surface-variant font-bold">TÝ</div>
+<div class="text-xs font-bold text-on-surface-variant mb-2 uppercase">TÀI BẠCH</div>
+<div class="text-primary font-bold text-sm">Phá Quân</div>
+</div>
+<div class="bg-surface-container-low p-4 relative group hover:bg-surface-container-high transition-colors">
+<div class="absolute top-2 right-2 text-[10px] text-on-surface-variant font-bold">HỢI</div>
+<div class="text-xs font-bold text-on-surface-variant mb-2 uppercase">TẬT ÁCH</div>
+<div class="text-secondary font-bold text-sm">Thiên Đồng</div>
+</div>
+</div>
+</div>
+<!-- Mobile Palace List (Alternative for small screens) -->
+<div class="md:hidden space-y-3">
+<h3 class="text-secondary font-headline font-bold uppercase text-xs tracking-widest mb-4 flex items-center gap-2">
+<span class="w-8 h-px bg-secondary/30"></span> 12 Cung Vị <span class="w-8 h-px bg-secondary/30"></span>
+</h3>
+<div class="bg-surface-container-low p-5 rounded-xl border-l-4 border-secondary">
+<div class="flex justify-between items-start mb-3">
+<div>
+<div class="text-secondary font-bold text-lg">MỆNH</div>
+<div class="text-on-surface-variant text-[10px] uppercase font-medium">Cung Thìn — Thổ</div>
+</div>
+<div class="text-right">
+<div class="text-primary font-bold text-lg">Cự Môn</div>
+<div class="text-primary-container text-[10px] font-bold">Vượng Địa</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant/20">
+<div>
+<div class="text-[10px] font-bold text-tertiary mb-1">CÁC SAO TỐT</div>
+<ul class="text-xs space-y-1 text-on-surface/80">
+<li>• Thiên Khôi</li>
+<li>• Văn Khúc</li>
+<li>• Hóa Lộc</li>
+</ul>
+</div>
+<div>
+<div class="text-[10px] font-bold text-error mb-1">CÁC SAO XẤU</div>
+<ul class="text-xs space-y-1 text-on-surface/80">
+<li>• Đà La</li>
+<li>• Quan Phủ</li>
+<li>• Kiếp Sát</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-5 rounded-xl">
+<div class="flex justify-between items-start mb-3">
+<div>
+<div class="text-on-surface font-bold text-lg">THIÊN DI <span class="text-[10px] text-secondary">(THÂN)</span></div>
+<div class="text-on-surface-variant text-[10px] uppercase font-medium">Cung Tuất — Thổ</div>
+</div>
+<div class="text-right">
+<div class="text-primary font-bold text-lg">Thất Sát</div>
+<div class="text-primary-container text-[10px] font-bold">Hãm Địa</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant/20">
+<div>
+<div class="text-[10px] font-bold text-tertiary mb-1">CÁC SAO TỐT</div>
+<ul class="text-xs space-y-1 text-on-surface/80">
+<li>• Thiên Việt</li>
+<li>• Tả Phù</li>
+</ul>
+</div>
+<div>
+<div class="text-[10px] font-bold text-error mb-1">CÁC SAO XẤU</div>
+<ul class="text-xs space-y-1 text-on-surface/80">
+<li>• Địa Không</li>
+<li>• Địa Kiếp</li>
+</ul>
+</div>
+</div>
+</div>
+<button class="w-full py-4 rounded-xl border border-outline-variant/30 text-on-surface-variant font-bold text-sm uppercase tracking-widest hover:bg-surface-container-high transition-colors">
+                Xem tất cả các cung
+            </button>
+</div>
+<!-- Detailed Interpretations -->
+<section class="mt-12 space-y-6">
+<h3 class="text-on-surface font-headline font-bold text-xl">Luận Giải Chi Tiết</h3>
+<div class="glass-panel p-6 rounded-2xl border border-white/5 relative overflow-hidden">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 shrink-0 rounded-full bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="psychology">psychology</span>
+</div>
+<div>
+<h4 class="font-bold text-lg text-primary mb-2">Tính cách &amp; Định hướng</h4>
+<p class="text-sm text-on-surface/70 leading-relaxed">
+                            Mệnh Cự Môn tại Thìn, chủ nhân là người thông minh, có khả năng ngôn ngữ và phản biện sắc bén. Tuy nhiên, do Cự Môn là "ám tinh" nên cuộc đời thường gặp nhiều thị phi, hiểu lầm. Cần chú trọng tu tâm tích đức để hóa giải hung tinh.
+                        </p>
+</div>
+</div>
+</div>
+<div class="glass-panel p-6 rounded-2xl border border-white/5 relative overflow-hidden">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 shrink-0 rounded-full bg-secondary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" data-icon="account_balance_wallet">account_balance_wallet</span>
+</div>
+<div>
+<h4 class="font-bold text-lg text-secondary mb-2">Tài lộc &amp; Sự nghiệp</h4>
+<p class="text-sm text-on-surface/70 leading-relaxed">
+                            Cung Tài Bạch có Phá Quân, tiền bạc tụ tán thất thường, khó giữ được lâu bền ở giai đoạn tiền vận. Nên tập trung vào các ngành nghề mang tính đột phá hoặc kỹ thuật chuyên môn cao. Trung vận sẽ có bước ngoặt lớn về tài chính.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-3xl border-t border-[#e5e2e1]/10 bg-[#131313]/90 backdrop-blur-xl flex justify-around items-center w-full px-4 py-3 pb-6 shadow-[0_-4px_24px_rgba(0,0,0,0.5)]">
+<a class="flex flex-col items-center justify-center text-[#e9c349] bg-[#e9c349]/10 rounded-xl px-3 py-1 active:translate-y-0.5 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-medium uppercase tracking-tighter mt-1">Lá Số</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#e5e2e1]/60 hover:text-[#ffb3ac] transition-colors active:translate-y-0.5 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-medium uppercase tracking-tighter mt-1">Giải Mã</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#e5e2e1]/60 hover:text-[#ffb3ac] transition-colors active:translate-y-0.5 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-medium uppercase tracking-tighter mt-1">Lịch Việt</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#e5e2e1]/60 hover:text-[#ffb3ac] transition-colors active:translate-y-0.5 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-medium uppercase tracking-tighter mt-1">Cá Nhân</span>
+</a>
+</nav>
+</body></html>

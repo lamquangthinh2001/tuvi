@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#002204",
+                    "tertiary-fixed-dim": "#88d982",
+                    "on-tertiary-container": "#d8ffd0",
+                    "on-background": "#e5e2e1",
+                    "error-container": "#93000a",
+                    "outline": "#ab8985",
+                    "inverse-on-surface": "#313030",
+                    "on-secondary": "#3c2f00",
+                    "primary": "#ffb3ac",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-surface-variant": "#e4beba",
+                    "tertiary-fixed": "#a3f69c",
+                    "primary-container": "#d32f2f",
+                    "background": "#131313",
+                    "inverse-surface": "#e5e2e1",
+                    "on-error-container": "#ffdad6",
+                    "outline-variant": "#5b403d",
+                    "surface-container-high": "#2a2a2a",
+                    "on-primary-container": "#fff2f0",
+                    "on-secondary-fixed": "#241a00",
+                    "primary-fixed": "#ffdad6",
+                    "on-secondary-container": "#342800",
+                    "error": "#ffb4ab",
+                    "on-secondary-fixed-variant": "#574500",
+                    "primary-fixed-dim": "#ffb3ac",
+                    "surface-tint": "#ffb3ac",
+                    "tertiary-container": "#307f34",
+                    "secondary-fixed-dim": "#e9c349",
+                    "surface-container-low": "#1c1b1b",
+                    "surface": "#131313",
+                    "on-error": "#690005",
+                    "inverse-primary": "#ba1a20",
+                    "surface-container": "#201f1f",
+                    "surface-variant": "#353534",
+                    "on-primary-fixed": "#410003",
+                    "secondary-container": "#af8d11",
+                    "secondary": "#e9c349",
+                    "surface-bright": "#393939",
+                    "secondary-fixed": "#ffe088",
+                    "surface-container-highest": "#353534",
+                    "on-tertiary": "#003909",
+                    "on-tertiary-fixed-variant": "#005312",
+                    "on-surface": "#e5e2e1",
+                    "surface-dim": "#131313",
+                    "tertiary": "#88d982",
+                    "on-primary": "#680008",
+                    "on-primary-fixed-variant": "#930010"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Be Vietnam Pro"]
+            }
+          },
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: #131313;
+            color: #e5e2e1;
+        }
+        .glass-card {
+            background: rgba(53, 53, 52, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-24">
+<!-- Top Navigation -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 h-16 bg-[#131313]/80 backdrop-blur-md border-none bg-gradient-to-b from-[#1c1c1c] to-transparent">
+<button class="text-[#ffb3ac] transition-all active:scale-95">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline font-bold tracking-widest text-sm text-[#ffb3ac]">CELESTIAL ARCHIVE</h1>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-secondary/30">
+<img class="w-full h-full object-cover" data-alt="Portrait of a young Vietnamese man looking contemplative with soft warm studio lighting on dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcEtpv3UzeqckWhg96TEALcMD6dBbGQW4VZB2updLjzU5TAxfgdWpyrgOwYWro_L-mAsK-fa9v6wZRLFltosaikhj97BQBVcgqvlJQ45N-Y7CKB4zCkvZzo3GnMWtvEYYRybjEiZPvJzXuPZJ_33wYuaCXRMwYQoVDDF0xJ1VMaKPITdWDKk9DBA_8yRZu4txBEA38-fhn8v750rgDvFd08ldkNfmXmdIHtFmAlQQ9YLSRTMj4mUBkTuMc2CrLGI09K2rLoyKMvn8k"/>
+</div>
+</header>
+<main class="pt-20 px-4 max-w-2xl mx-auto space-y-6">
+<!-- Today's Date Hero Section -->
+<section class="relative overflow-hidden rounded-full p-8 flex flex-col items-center justify-center text-center space-y-2 bg-gradient-to-br from-surface-container-low to-surface">
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(circle at 50% 50%, #e9c349 0%, transparent 70%);"></div>
+<p class="font-headline font-bold text-secondary tracking-tighter text-lg">Tháng 5 Giáp Thìn</p>
+<div class="flex flex-col items-center">
+<span class="text-7xl font-headline font-extrabold text-on-background tracking-tight">24</span>
+<span class="font-body font-semibold text-primary uppercase tracking-widest text-sm">Thứ Hai • Tháng 6 • 2024</span>
+</div>
+<div class="mt-4 px-6 py-2 rounded-full border border-outline-variant/30 glass-card">
+<span class="text-sm font-medium text-tertiary">Ngày 19 tháng 5 (Âm Lịch)</span>
+</div>
+</section>
+<!-- Horoscope Quick Insight (Bento Grid Style) -->
+<div class="grid grid-cols-2 gap-4">
+<!-- User Destiny Card -->
+<div class="col-span-2 glass-card rounded-xl p-5 border-l-4 border-secondary flex items-center justify-between">
+<div class="space-y-1">
+<h3 class="text-xs font-headline font-bold text-on-surface-variant uppercase tracking-widest">Mệnh Chủ</h3>
+<p class="text-lg font-bold text-secondary">Giáp Tuất 1994</p>
+<p class="text-sm text-on-surface/70 italic">Sơn Đầu Hỏa (Lửa trên núi)</p>
+</div>
+<div class="w-16 h-16 opacity-20">
+<span class="material-symbols-outlined text-6xl text-secondary" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+</div>
+<!-- Daily Prediction -->
+<div class="col-span-2 bg-surface-container-low rounded-xl p-5 space-y-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">auto_awesome</span>
+<h3 class="font-headline font-bold text-sm tracking-wide text-primary">DỰ BÁO NGÀY MỚI</h3>
+</div>
+<p class="text-sm leading-relaxed text-on-surface/90">
+                    Hôm nay là ngày thuận lợi cho các công việc liên quan đến đàm phán và ký kết. Năng lượng Hỏa của bản mệnh tương hợp với ngày, mang lại sự sáng tạo vượt bậc. Tuy nhiên, cần chú ý giữ bình tĩnh trong các mối quan hệ xã giao vào giờ Thân.
+                </p>
+</div>
+<!-- Good Direction -->
+<div class="bg-surface-container-low rounded-xl p-4 flex flex-col items-center justify-center text-center gap-2">
+<span class="material-symbols-outlined text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">explore</span>
+<div class="text-xs text-on-surface-variant uppercase tracking-tighter">Hướng Xuất Hành</div>
+<div class="text-sm font-bold text-on-surface">Đông Nam</div>
+<div class="text-[10px] text-tertiary-fixed-dim font-medium uppercase tracking-tighter">Hỷ Thần</div>
+</div>
+<!-- Bad Direction -->
+<div class="bg-surface-container-low rounded-xl p-4 flex flex-col items-center justify-center text-center gap-2">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">warning</span>
+<div class="text-xs text-on-surface-variant uppercase tracking-tighter">Hướng Tránh</div>
+<div class="text-sm font-bold text-on-surface">Tây Bắc</div>
+<div class="text-[10px] text-error font-medium uppercase tracking-tighter">Hắc Đạo</div>
+</div>
+</div>
+<!-- Lucky Hours -->
+<section class="space-y-4">
+<div class="flex items-center justify-between">
+<h3 class="font-headline font-bold text-sm tracking-widest text-on-surface-variant uppercase">Giờ Hoàng Đạo</h3>
+<span class="text-[10px] text-secondary font-medium uppercase tracking-widest">Tốt nhất cho khởi sự</span>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<div class="bg-secondary/10 border border-secondary/20 rounded-lg p-3 text-center">
+<div class="text-xs text-secondary font-bold">Dần</div>
+<div class="text-[10px] text-on-surface/60">03h - 05h</div>
+</div>
+<div class="bg-secondary/10 border border-secondary/20 rounded-lg p-3 text-center">
+<div class="text-xs text-secondary font-bold">Thìn</div>
+<div class="text-[10px] text-on-surface/60">07h - 09h</div>
+</div>
+<div class="bg-secondary/10 border border-secondary/20 rounded-lg p-3 text-center">
+<div class="text-xs text-secondary font-bold">Tỵ</div>
+<div class="text-[10px] text-on-surface/60">09h - 11h</div>
+</div>
+<div class="bg-secondary/10 border border-secondary/20 rounded-lg p-3 text-center">
+<div class="text-xs text-secondary font-bold">Thân</div>
+<div class="text-[10px] text-on-surface/60">15h - 17h</div>
+</div>
+<div class="bg-secondary/10 border border-secondary/20 rounded-lg p-3 text-center">
+<div class="text-xs text-secondary font-bold">Dậu</div>
+<div class="text-[10px] text-on-surface/60">17h - 19h</div>
+</div>
+<div class="bg-secondary/10 border border-secondary/20 rounded-lg p-3 text-center">
+<div class="text-xs text-secondary font-bold">Hợi</div>
+<div class="text-[10px] text-on-surface/60">21h - 23h</div>
+</div>
+</div>
+</section>
+<!-- Decorative Elements / Background Art -->
+<div class="fixed bottom-24 right-0 left-0 flex justify-center opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-[200px]" style="font-variation-settings: 'wght' 100;">balance</span>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-safe bg-[#131313]/90 backdrop-blur-xl border-t border-[#e5e2e1]/10 shadow-[0_-4px_20px_rgba(0,0,0,0.5)] rounded-t-2xl">
+<a class="flex flex-col items-center justify-center text-[#e9c349] bg-[#e9c349]/10 rounded-xl px-4 py-1 transition-all active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-be-vietnam-pro text-[10px] uppercase font-semibold tracking-wider">Trang chủ</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#e5e2e1]/60 transition-all hover:text-[#ffb3ac]" href="#">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="font-be-vietnam-pro text-[10px] uppercase font-semibold tracking-wider">Lá số</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#e5e2e1]/60 transition-all hover:text-[#ffb3ac]" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-be-vietnam-pro text-[10px] uppercase font-semibold tracking-wider">Giải đoán</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#e5e2e1]/60 transition-all hover:text-[#ffb3ac]" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-be-vietnam-pro text-[10px] uppercase font-semibold tracking-wider">Cá nhân</span>
+</a>
+</nav>
+<!-- FAB Button (Calendar Jump) -->
+<button class="fixed bottom-28 right-6 w-14 h-14 bg-gradient-to-br from-primary to-primary-container rounded-full shadow-lg flex items-center justify-center text-on-primary transition-all active:scale-95 z-40">
+<span class="material-symbols-outlined text-3xl">calendar_month</span>
+</button>
+</body></html>

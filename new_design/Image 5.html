@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Giải Đoán Lá Số - Celestial Archive</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Be+Vietnam+Pro:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#002204",
+                    "tertiary-fixed-dim": "#88d982",
+                    "on-tertiary-container": "#d8ffd0",
+                    "on-background": "#e5e2e1",
+                    "error-container": "#93000a",
+                    "outline": "#ab8985",
+                    "inverse-on-surface": "#313030",
+                    "on-secondary": "#3c2f00",
+                    "primary": "#ffb3ac",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-surface-variant": "#e4beba",
+                    "tertiary-fixed": "#a3f69c",
+                    "primary-container": "#d32f2f",
+                    "background": "#131313",
+                    "inverse-surface": "#e5e2e1",
+                    "on-error-container": "#ffdad6",
+                    "outline-variant": "#5b403d",
+                    "surface-container-high": "#2a2a2a",
+                    "on-primary-container": "#fff2f0",
+                    "on-secondary-fixed": "#241a00",
+                    "primary-fixed": "#ffdad6",
+                    "on-secondary-container": "#342800",
+                    "error": "#ffb4ab",
+                    "on-secondary-fixed-variant": "#574500",
+                    "primary-fixed-dim": "#ffb3ac",
+                    "surface-tint": "#ffb3ac",
+                    "tertiary-container": "#307f34",
+                    "secondary-fixed-dim": "#e9c349",
+                    "surface-container-low": "#1c1b1b",
+                    "surface": "#131313",
+                    "on-error": "#690005",
+                    "inverse-primary": "#ba1a20",
+                    "surface-container": "#201f1f",
+                    "surface-variant": "#353534",
+                    "on-primary-fixed": "#410003",
+                    "secondary-container": "#af8d11",
+                    "secondary": "#e9c349",
+                    "surface-bright": "#393939",
+                    "secondary-fixed": "#ffe088",
+                    "surface-container-highest": "#353534",
+                    "on-tertiary": "#003909",
+                    "on-tertiary-fixed-variant": "#005312",
+                    "on-surface": "#e5e2e1",
+                    "surface-dim": "#131313",
+                    "tertiary": "#88d982",
+                    "on-primary": "#680008",
+                    "on-primary-fixed-variant": "#930010"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Be Vietnam Pro"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        background-color: #131313;
+        color: #e5e2e1;
+        font-family: 'Be Vietnam Pro', sans-serif;
+      }
+      .glass-card {
+        background: rgba(53, 53, 52, 0.4);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(171, 137, 133, 0.1);
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="pb-24">
+<!-- Top Navigation -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 h-16 bg-[#131313]/80 backdrop-blur-md border-none bg-gradient-to-b from-[#1c1c1c] to-transparent">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#ffb3ac]">menu</span>
+<h1 class="text-[#e9c349] font-black tracking-tighter font-headline">CELESTIAL ARCHIVE</h1>
+</div>
+<div class="w-10 h-10 rounded-full border border-[#ffb3ac]/30 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="close-up portrait of a thoughtful man with a clean beard against a dark moody background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnqtgtNtx51qZxzQW-M9spoDZXhxUC0nn9IBVMAfJN1Agm7rNvJjB_FfWyo2Od_Q_fADube7SL57GrvdJe0UGZXqZfm6VIxBIQzyj8sLAV0k_nuUIt7ZIIBPKcO8ZbaOfspGTYs-kffLJaGLwrBzzTVnZZD6j3TryuT9pitZGS95PSxVzeTP0THgxnn6lw9wDZiTaCF2RXx0AhclKLxrRaZQUz7VfiSqzIq9H4LoMZpwjOpgDJhmhZ_zaFhRQj1eo53XUaRudrtgZc"/>
+</div>
+</header>
+<main class="pt-24 px-4 max-w-5xl mx-auto space-y-8">
+<!-- Hero Section: Overview -->
+<section class="relative overflow-hidden rounded-3xl p-8 bg-surface-container-low min-h-[300px] flex flex-col justify-end">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-40" data-alt="ethereal deep space nebula with golden cosmic dust and distant shimmering stars in a dark void" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbppNc-YOLRn3GcxXXFoefsjCpuaNS1gijFbVqgnD67kqq-Fw0-w96tvdF4u02PGPOl6c7iWDjT8W5A9O1O85o-4xeHoWfs_43GeOPvfyCGkEC4wPFMLxXDIxrail9YT3vtdRfhIM_bZqK8Agb6ISuxetvpUoHDpQkwXBhb4R3eRSCr7oJdFQgXygYsqtk8Dp-6ZG3nz67scFPmV9MKe8lkSTKmNT34pMpxHgPsV7zMC1vitOYeU2XY3RlNUJH6wp2cd-t2kErFtnv"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 space-y-4">
+<div class="flex items-center gap-3">
+<span class="bg-secondary-container/30 text-secondary px-3 py-1 rounded-sm text-[10px] font-bold tracking-widest uppercase font-label">Tổng quan cuộc đời</span>
+</div>
+<h2 class="text-4xl md:text-5xl font-headline font-extrabold text-on-surface tracking-tight">Sơn Đầu Hỏa</h2>
+<p class="text-on-surface-variant max-w-2xl leading-relaxed text-body-md">
+                    Cuộc đời như ngọn lửa trên đỉnh núi, rực rỡ và kiêu hãnh. Bạn sở hữu trí tuệ sắc bén, lòng nhiệt huyết và khả năng lãnh đạo bẩm sinh. Tuy nhiên, sự nóng nảy đôi khi làm mờ đi những cơ hội tiềm ẩn.
+                </p>
+<div class="flex gap-4 pt-4">
+<div class="bg-surface-container-highest px-4 py-2 rounded-xl">
+<span class="block text-[10px] text-on-surface-variant uppercase font-semibold">Bản Mệnh</span>
+<span class="text-secondary font-bold">Giáp Tuất</span>
+</div>
+<div class="bg-surface-container-highest px-4 py-2 rounded-xl">
+<span class="block text-[10px] text-on-surface-variant uppercase font-semibold">Cục</span>
+<span class="text-tertiary font-bold">Thủy Nhị Cục</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Element Chart Section -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="md:col-span-1 glass-card p-6 rounded-3xl space-y-6">
+<h3 class="font-headline font-bold text-lg text-secondary">Ngũ Hành Tương Sinh</h3>
+<div class="flex justify-center items-center h-48 relative">
+<!-- Circular Diagram Visualization -->
+<div class="w-32 h-32 rounded-full border-2 border-dashed border-outline-variant flex items-center justify-center">
+<div class="w-16 h-16 bg-primary-container/20 rounded-full flex items-center justify-center border border-primary/40">
+<span class="material-symbols-outlined text-primary">local_fire_department</span>
+</div>
+</div>
+<!-- Elemental Tags around circle -->
+<div class="absolute top-0 text-[10px] font-bold text-tertiary">MỘC</div>
+<div class="absolute right-0 text-[10px] font-bold text-secondary">THỔ</div>
+<div class="absolute bottom-0 text-[10px] font-bold text-on-surface-variant">THỦY</div>
+<div class="absolute left-0 text-[10px] font-bold text-outline">KIM</div>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-center text-sm">
+<span class="text-on-surface-variant">Hỏa (Bản mệnh)</span>
+<span class="text-primary font-bold">85%</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5">
+<div class="bg-primary h-1.5 rounded-full" style="width: 85%"></div>
+</div>
+<p class="text-xs text-on-surface-variant italic">Mộc sinh Hỏa - Thuận lợi cho việc phát triển sự nghiệp.</p>
+</div>
+</div>
+<!-- Important Palaces Bento Grid -->
+<div class="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Mệnh Palace -->
+<div class="bg-surface-container-high p-6 rounded-3xl border-l-4 border-secondary flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-4">
+<h4 class="font-headline font-bold text-secondary text-xl">Cung Mệnh</h4>
+<span class="material-symbols-outlined text-secondary/50">account_circle</span>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">
+                            Chủ về tư duy và cốt cách. Có <span class="text-primary">Thái Dương</span> miếu địa tại Tỵ, mang lại hào quang và sự nổi tiếng.
+                        </p>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="bg-tertiary-container/20 text-tertiary px-2 py-0.5 rounded-sm text-[10px] font-bold">THIÊN KHÔI</span>
+<span class="bg-tertiary-container/20 text-tertiary px-2 py-0.5 rounded-sm text-[10px] font-bold">HÓA LỘC</span>
+<span class="bg-error-container/20 text-error px-2 py-0.5 rounded-sm text-[10px] font-bold">ĐÀ LA</span>
+</div>
+</div>
+<!-- Quan Lộc Palace -->
+<div class="bg-surface-container-low p-6 rounded-3xl flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-4">
+<h4 class="font-headline font-bold text-on-surface text-xl">Quan Lộc</h4>
+<span class="material-symbols-outlined text-on-surface-variant">work</span>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">
+                            Sự nghiệp thăng tiến mạnh mẽ ở trung vận. Thích hợp với các ngành luật, quản lý hoặc nghệ thuật.
+                        </p>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="bg-tertiary-container/20 text-tertiary px-2 py-0.5 rounded-sm text-[10px] font-bold">THIÊN VIỆT</span>
+<span class="bg-secondary-container/20 text-secondary px-2 py-0.5 rounded-sm text-[10px] font-bold">TẢ PHÙ</span>
+</div>
+</div>
+<!-- Tài Bạch Palace -->
+<div class="bg-surface-container-low p-6 rounded-3xl flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-4">
+<h4 class="font-headline font-bold text-on-surface text-xl">Tài Bạch</h4>
+<span class="material-symbols-outlined text-on-surface-variant">payments</span>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">
+                            Tiền bạc tụ tán thất thường nhưng về sau giàu có. Cần chú trọng việc quản lý chi tiêu.
+                        </p>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="bg-tertiary-container/20 text-tertiary px-2 py-0.5 rounded-sm text-[10px] font-bold">VŨ KHÚC</span>
+<span class="bg-error-container/20 text-error px-2 py-0.5 rounded-sm text-[10px] font-bold">PHI LIÊM</span>
+</div>
+</div>
+<!-- Thiên Di Palace -->
+<div class="bg-surface-container-low p-6 rounded-3xl flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-4">
+<h4 class="font-headline font-bold text-on-surface text-xl">Thiên Di</h4>
+<span class="material-symbols-outlined text-on-surface-variant">explore</span>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4">
+                            Ra ngoài gặp nhiều quý nhân giúp đỡ. Có duyên với việc đi xa hoặc làm việc trong môi trường quốc tế.
+                        </p>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="bg-tertiary-container/20 text-tertiary px-2 py-0.5 rounded-sm text-[10px] font-bold">HỮU BẬT</span>
+<span class="bg-tertiary-container/20 text-tertiary px-2 py-0.5 rounded-sm text-[10px] font-bold">THIÊN QUÝ</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Current Year Fortune -->
+<section class="space-y-6">
+<div class="flex items-center gap-4">
+<h3 class="font-headline font-extrabold text-2xl tracking-tight">VẬN HẠN NĂM NAY</h3>
+<div class="h-px flex-1 bg-outline-variant/30"></div>
+<span class="text-primary font-bold font-headline">GIÁP THÌN 2024</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Monthly Forecast Table -->
+<div class="bg-surface-container-lowest p-6 rounded-3xl border border-outline-variant/20">
+<h4 class="text-sm font-bold text-on-surface-variant uppercase tracking-widest mb-6">Biểu đồ cát hung theo tháng</h4>
+<div class="space-y-4">
+<div class="flex items-center gap-4">
+<span class="text-xs font-bold w-12 text-on-surface-variant">Tháng 1</span>
+<div class="flex-1 h-3 bg-surface-container rounded-full overflow-hidden flex">
+<div class="bg-tertiary h-full" style="width: 70%"></div>
+</div>
+<span class="text-[10px] font-bold text-tertiary">CÁT</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-xs font-bold w-12 text-on-surface-variant">Tháng 2</span>
+<div class="flex-1 h-3 bg-surface-container rounded-full overflow-hidden flex">
+<div class="bg-primary h-full" style="width: 40%"></div>
+</div>
+<span class="text-[10px] font-bold text-primary">BÌNH</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-xs font-bold w-12 text-on-surface-variant">Tháng 3</span>
+<div class="flex-1 h-3 bg-surface-container rounded-full overflow-hidden flex">
+<div class="bg-error h-full" style="width: 25%"></div>
+</div>
+<span class="text-[10px] font-bold text-error">HUNG</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-xs font-bold w-12 text-on-surface-variant">Tháng 4</span>
+<div class="flex-1 h-3 bg-surface-container rounded-full overflow-hidden flex">
+<div class="bg-tertiary h-full" style="width: 90%"></div>
+</div>
+<span class="text-[10px] font-bold text-tertiary">ĐẠI CÁT</span>
+</div>
+</div>
+<button class="mt-8 w-full py-3 bg-primary text-on-primary rounded-full font-label font-bold text-xs tracking-widest uppercase hover:opacity-90 transition-all">Xem chi tiết 12 tháng</button>
+</div>
+<!-- Year Highlight Cards -->
+<div class="space-y-4">
+<div class="glass-card p-5 rounded-2xl flex gap-4 items-start">
+<div class="bg-secondary/10 p-2 rounded-lg">
+<span class="material-symbols-outlined text-secondary">stars</span>
+</div>
+<div>
+<h5 class="font-bold text-on-surface">Sao hạn: Thái Bạch</h5>
+<p class="text-xs text-on-surface-variant mt-1 leading-relaxed">Cẩn trọng về tài chính vào tháng 2 và tháng 5 âm lịch. Hạn chế đầu tư mạo hiểm.</p>
+</div>
+</div>
+<div class="glass-card p-5 rounded-2xl flex gap-4 items-start">
+<div class="bg-tertiary/10 p-2 rounded-lg">
+<span class="material-symbols-outlined text-tertiary">favorite</span>
+</div>
+<div>
+<h5 class="font-bold text-on-surface">Tình duyên &amp; Sức khỏe</h5>
+<p class="text-xs text-on-surface-variant mt-1 leading-relaxed">Năm nay có hỷ tín trong gia đạo. Sức khỏe cần chú ý các bệnh về đường tiêu hóa.</p>
+</div>
+</div>
+<div class="glass-card p-5 rounded-2xl flex gap-4 items-start">
+<div class="bg-primary/10 p-2 rounded-lg">
+<span class="material-symbols-outlined text-primary">trending_up</span>
+</div>
+<div>
+<h5 class="font-bold text-on-surface">Cơ hội bứt phá</h5>
+<p class="text-xs text-on-surface-variant mt-1 leading-relaxed">Thời điểm cuối năm từ tháng 10 trở đi là lúc gặt hái thành quả từ các dự án cũ.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-safe bg-[#131313]/90 backdrop-blur-xl border-t border-[#e5e2e1]/10 shadow-[0_-4px_20px_rgba(0,0,0,0.5)] rounded-t-2xl">
+<a class="flex flex-col items-center justify-center text-[#e5e2e1]/60 font-be-vietnam-pro text-[10px] uppercase font-semibold tracking-wider hover:text-[#ffb3ac]" href="#">
+<span class="material-symbols-outlined mb-1">home</span>
+<span>Trang chủ</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#e5e2e1]/60 font-be-vietnam-pro text-[10px] uppercase font-semibold tracking-wider hover:text-[#ffb3ac]" href="#">
+<span class="material-symbols-outlined mb-1">auto_awesome</span>
+<span>Lá số</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#e9c349] bg-[#e9c349]/10 rounded-xl px-4 py-1 font-be-vietnam-pro text-[10px] uppercase font-semibold tracking-wider" href="#">
+<span class="material-symbols-outlined mb-1">menu_book</span>
+<span>Giải đoán</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#e5e2e1]/60 font-be-vietnam-pro text-[10px] uppercase font-semibold tracking-wider hover:text-[#ffb3ac]" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span>Cá nhân</span>
+</a>
+</nav>
+</body></html>

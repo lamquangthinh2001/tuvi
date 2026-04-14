@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lập Lá Số - Celestial Archive</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Be+Vietnam+Pro:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#307f34",
+                    "tertiary": "#88d982",
+                    "primary-container": "#d32f2f",
+                    "surface-tint": "#ffb3ac",
+                    "outline-variant": "#5b403d",
+                    "outline": "#ab8985",
+                    "on-error-container": "#ffdad6",
+                    "inverse-on-surface": "#313030",
+                    "on-tertiary": "#003909",
+                    "surface-container": "#201f1f",
+                    "primary-fixed-dim": "#ffb3ac",
+                    "primary-fixed": "#ffdad6",
+                    "surface-dim": "#131313",
+                    "on-secondary-fixed-variant": "#574500",
+                    "surface-container-highest": "#353534",
+                    "on-primary": "#680008",
+                    "on-tertiary-fixed": "#002204",
+                    "surface": "#131313",
+                    "secondary-fixed": "#ffe088",
+                    "inverse-primary": "#ba1a20",
+                    "secondary": "#e9c349",
+                    "on-background": "#e5e2e1",
+                    "error": "#ffb4ab",
+                    "surface-container-low": "#1c1b1b",
+                    "on-error": "#690005",
+                    "on-secondary-fixed": "#241a00",
+                    "on-tertiary-fixed-variant": "#005312",
+                    "on-tertiary-container": "#d8ffd0",
+                    "inverse-surface": "#e5e2e1",
+                    "background": "#131313",
+                    "surface-container-lowest": "#0e0e0e",
+                    "surface-bright": "#393939",
+                    "tertiary-fixed": "#a3f69c",
+                    "primary": "#ffb3ac",
+                    "on-surface": "#e5e2e1",
+                    "surface-variant": "#353534",
+                    "on-surface-variant": "#e4beba",
+                    "on-secondary": "#3c2f00",
+                    "on-primary-fixed-variant": "#930010",
+                    "secondary-fixed-dim": "#e9c349",
+                    "secondary-container": "#af8d11",
+                    "surface-container-high": "#2a2a2a",
+                    "tertiary-fixed-dim": "#88d982",
+                    "on-primary-container": "#fff2f0",
+                    "on-secondary-container": "#342800",
+                    "on-primary-fixed": "#410003",
+                    "error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Be Vietnam Pro"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .celestial-gradient {
+            background: radial-gradient(circle at top right, rgba(211, 47, 47, 0.15), transparent 40%),
+                        radial-gradient(circle at bottom left, rgba(233, 195, 73, 0.1), transparent 40%);
+        }
+        .glass-panel {
+            background: rgba(28, 27, 27, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body selection:bg-secondary/30 celestial-gradient min-h-screen pb-24">
+<!-- Top App Bar (Shared Component Strategy) -->
+<header class="fixed top-0 w-full z-50 bg-[#131313] flex justify-between items-center px-6 h-16">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#ffb3ac] hover:opacity-80 transition-opacity cursor-pointer">menu</span>
+</div>
+<h1 class="font-manrope tracking-widest text-xl font-bold text-[#e9c349]">LẬP LÁ SỐ</h1>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant/30">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="close-up profile avatar of a mysterious person in soft low lighting with dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA87H4i__p4EJtA950Kc5ltHUlpa1rra60yu4xPxv5hAqQr0LIjeZ5hnyuGIty0jMctNoRgDD4KspCBPcb5cNdiEhYGD6-J0FUQFYvNvf0o-eDgU7AmchISqB2jWLr3CtTLfv89VSXyBm4ZHi-CodHmEMUbhRdH1k16YuoPGvMNGvKrdnfx5_9dqIMhOf67bFl-nqAnrdFhX0jzpz8EVqu2MCbTSQ7ntJVa0sil6dd5iYtBEDtSEZ4hJ982pZojSUJejd7-fRMkF_JC"/>
+</div>
+</header>
+<main class="pt-24 px-6 max-w-lg mx-auto">
+<!-- Hero Section / Context -->
+<div class="mb-10 text-center">
+<div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-surface-container-high mb-4 border border-outline-variant/10">
+<span class="material-symbols-outlined text-secondary text-3xl" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<h2 class="font-headline text-3xl font-extrabold tracking-tight mb-2 text-on-surface">Khai Mở Bản Mệnh</h2>
+<p class="text-on-surface-variant font-light text-sm opacity-80 italic">"Vận mệnh nằm trong tay kẻ hiểu thấu các vì sao."</p>
+</div>
+<!-- Input Form Section -->
+<form class="space-y-8">
+<!-- Họ và tên -->
+<div class="space-y-2">
+<label class="text-secondary text-[10px] uppercase tracking-widest font-bold ml-1">Họ và tên</label>
+<div class="relative group">
+<input class="w-full bg-transparent border-0 border-b border-outline-variant/40 focus:border-secondary focus:ring-0 text-lg py-3 transition-all placeholder:text-on-surface-variant/30 font-medium" placeholder="Nhập tên của bạn..." type="text"/>
+<span class="material-symbols-outlined absolute right-0 top-1/2 -translate-y-1/2 text-on-surface-variant/40 group-focus-within:text-secondary">person</span>
+</div>
+</div>
+<!-- Giới tính -->
+<div class="space-y-2">
+<label class="text-secondary text-[10px] uppercase tracking-widest font-bold ml-1">Giới tính</label>
+<div class="grid grid-cols-2 gap-3">
+<button class="flex items-center justify-center gap-2 py-3 rounded-xl border border-outline-variant/40 bg-surface-container-low text-on-surface-variant hover:border-secondary/50 hover:text-secondary transition-all" type="button">
+<span class="material-symbols-outlined text-sm">male</span>
+<span class="text-sm font-medium">Nam</span>
+</button>
+<button class="flex items-center justify-center gap-2 py-3 rounded-xl border-2 border-secondary bg-surface-container-high text-secondary transition-all" type="button">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">female</span>
+<span class="text-sm font-bold">Nữ</span>
+</button>
+</div>
+</div>
+<!-- Loại lịch Switch -->
+<div class="flex items-center justify-between p-4 rounded-xl bg-surface-container-low border border-outline-variant/20">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">calendar_month</span>
+<span class="text-sm font-medium">Lịch Dương</span>
+</div>
+<div class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</div>
+<div class="flex items-center gap-3 opacity-40">
+<span class="text-sm font-medium">Lịch Âm</span>
+</div>
+</div>
+<!-- Ngày tháng năm sinh -->
+<div class="grid grid-cols-3 gap-4">
+<div class="space-y-2">
+<label class="text-on-surface-variant text-[10px] uppercase tracking-tighter font-semibold">Ngày</label>
+<select class="w-full bg-surface-container-low border-b border-outline-variant/40 focus:border-secondary focus:ring-0 text-sm py-2 rounded-lg appearance-none">
+<option>01</option><option>15</option><option>31</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-on-surface-variant text-[10px] uppercase tracking-tighter font-semibold">Tháng</label>
+<select class="w-full bg-surface-container-low border-b border-outline-variant/40 focus:border-secondary focus:ring-0 text-sm py-2 rounded-lg appearance-none">
+<option>01</option><option>06</option><option>12</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-on-surface-variant text-[10px] uppercase tracking-tighter font-semibold">Năm</label>
+<select class="w-full bg-surface-container-low border-b border-outline-variant/40 focus:border-secondary focus:ring-0 text-sm py-2 rounded-lg appearance-none">
+<option>1990</option><option selected="">2000</option><option>2024</option>
+</select>
+</div>
+</div>
+<!-- Giờ sinh & Múi giờ -->
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-2">
+<label class="text-secondary text-[10px] uppercase tracking-widest font-bold ml-1">Giờ sinh</label>
+<div class="relative">
+<select class="w-full bg-surface-container-low border border-outline-variant/30 focus:border-secondary focus:ring-0 text-sm py-3 px-4 rounded-xl appearance-none">
+<option>Giờ Tý (23h-01h)</option>
+<option>Giờ Sửu (01h-03h)</option>
+<option>Giờ Dần (03h-05h)</option>
+<option>Giờ Mão (05h-07h)</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-on-surface-variant text-[10px] uppercase tracking-widest font-bold ml-1">Múi giờ</label>
+<div class="relative">
+<select class="w-full bg-surface-container-low border border-outline-variant/30 focus:border-secondary focus:ring-0 text-sm py-3 px-4 rounded-xl appearance-none">
+<option>GMT +7 (VN)</option>
+<option>GMT +8</option>
+<option>GMT +0</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none text-sm">schedule</span>
+</div>
+</div>
+</div>
+<!-- Primary Action Button -->
+<div class="pt-6">
+<button class="w-full bg-primary-container text-on-primary-container font-manrope font-bold py-5 rounded-full shadow-lg shadow-primary-container/20 flex items-center justify-center gap-3 active:scale-95 transition-transform uppercase tracking-[0.15em] text-sm" type="submit">
+<span class="material-symbols-outlined">stars</span>
+                    LẬP LÁ SỐ
+                </button>
+</div>
+</form>
+<!-- Aesthetic Decoration -->
+<div class="mt-16 flex flex-col items-center opacity-20">
+<div class="w-px h-12 bg-gradient-to-b from-secondary to-transparent"></div>
+<div class="text-[8px] tracking-[0.4em] font-manrope uppercase mt-4 text-secondary">Imperial Meridian</div>
+</div>
+</main>
+<!-- Bottom Nav Bar (Shared Component Strategy) -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-3xl border-t border-[#e5e2e1]/10 bg-[#131313]/95 backdrop-blur-md flex justify-around items-center pt-3 pb-6 px-4">
+<a class="flex flex-col items-center justify-center text-[#e9c349] font-bold tap-highlight-none active:scale-90" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-be-vietnam-pro text-[10px] uppercase tracking-tighter mt-1">Lá Số</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#e5e2e1]/40 hover:text-[#ffb3ac] transition-colors tap-highlight-none active:scale-90" href="#">
+<span class="material-symbols-outlined">brightness_7</span>
+<span class="font-be-vietnam-pro text-[10px] uppercase tracking-tighter mt-1">Cung Mệnh</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#e5e2e1]/40 hover:text-[#ffb3ac] transition-colors tap-highlight-none active:scale-90" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-be-vietnam-pro text-[10px] uppercase tracking-tighter mt-1">Giải Đoán</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#e5e2e1]/40 hover:text-[#ffb3ac] transition-colors tap-highlight-none active:scale-90" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-be-vietnam-pro text-[10px] uppercase tracking-tighter mt-1">Cài Đặt</span>
+</a>
+</nav>
+</body></html>

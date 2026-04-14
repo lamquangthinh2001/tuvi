@@ -1,333 +1,508 @@
-<!DOCTYPE html>
-<html>
-
 {% load static %}
-
+<!DOCTYPE html>
+<html class="dark" lang="vi">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Lá số tử vi</title>
-    <link href="https://fonts.googleapis.com/css?family=Noto+Serif" rel="stylesheet">
-    <link href="{% static "style.css" %}" rel="stylesheet">
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Lập Lá Số - Celestial Archive</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary-fixed": "#002204",
+                        "tertiary-fixed-dim": "#88d982",
+                        "on-tertiary-container": "#d8ffd0",
+                        "on-background": "#e5e2e1",
+                        "error-container": "#93000a",
+                        "outline": "#ab8985",
+                        "inverse-on-surface": "#313030",
+                        "on-secondary": "#3c2f00",
+                        "primary": "#ffb3ac",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-surface-variant": "#e4beba",
+                        "tertiary-fixed": "#a3f69c",
+                        "primary-container": "#d32f2f",
+                        "background": "#131313",
+                        "inverse-surface": "#e5e2e1",
+                        "on-error-container": "#ffdad6",
+                        "outline-variant": "#5b403d",
+                        "surface-container-high": "#2a2a2a",
+                        "on-primary-container": "#fff2f0",
+                        "on-secondary-fixed": "#241a00",
+                        "primary-fixed": "#ffdad6",
+                        "on-secondary-container": "#342800",
+                        "error": "#ffb4ab",
+                        "on-secondary-fixed-variant": "#574500",
+                        "primary-fixed-dim": "#ffb3ac",
+                        "surface-tint": "#ffb3ac",
+                        "tertiary-container": "#307f34",
+                        "secondary-fixed-dim": "#e9c349",
+                        "surface-container-low": "#1c1b1b",
+                        "surface": "#131313",
+                        "on-error": "#690005",
+                        "inverse-primary": "#ba1a20",
+                        "surface-container": "#201f1f",
+                        "surface-variant": "#353534",
+                        "on-primary-fixed": "#410003",
+                        "secondary-container": "#af8d11",
+                        "secondary": "#e9c349",
+                        "surface-bright": "#393939",
+                        "secondary-fixed": "#ffe088",
+                        "surface-container-highest": "#353534",
+                        "on-tertiary": "#003909",
+                        "on-tertiary-fixed-variant": "#005312",
+                        "on-surface": "#e5e2e1",
+                        "surface-dim": "#131313",
+                        "tertiary": "#88d982",
+                        "on-primary": "#680008",
+                        "on-primary-fixed-variant": "#930010"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.125rem",
+                        lg: "0.25rem",
+                        xl: "0.5rem",
+                        full: "0.75rem"
+                    },
+                    fontFamily: {
+                        headline: ["Manrope"],
+                        body: ["Be Vietnam Pro"],
+                        label: ["Be Vietnam Pro"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .celestial-gradient {
+            background: radial-gradient(circle at top right, rgba(211, 47, 47, 0.15), transparent 40%),
+                        radial-gradient(circle at bottom left, rgba(233, 195, 73, 0.1), transparent 40%);
+        }
+        .glass-panel {
+            background: rgba(28, 27, 27, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .cloud-pattern {
+            background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuCZ2QDIDUXxCsy3v5m0sRJuxbvG4e-GzS1hVyg1m5pD4XBvNGjdjum9O7SknbLSAMde0_R2exYLmuuqWPHbfaLQXaZuGwj_OLyYwmbGmtBvW1NblqAprrXIXZ2sZUp581BV3PoAgj3POxTdgZYK6mJ9vmLWqVR-daiVPwEOXVb7uTMRGGecZw0vPr-2FChkGrhVjwXEAvBwH1gEWHnYznMRkU6J3MTahdDvB2aglNW4jAEhNUS9fTcg3BXW7jiPR9QTDWGxbv9EPXbL);
+            opacity: 0.05
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none }
+        
+        .astro-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            gap: 2px;
+            aspect-ratio: 1/1.2;
+            width: 100%;
+        }
+        .palace-cell {
+            background: #1c1b1b;
+            border: 1px solid rgba(171, 137, 133, 0.1);
+            padding: 4px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .xungChieu .palace-cell {
+            background: rgba(233, 195, 73, 0.1);
+            border-color: rgba(233, 195, 73, 0.4);
+        }
+        .center-cell {
+            grid-area: 2 / 2 / 4 / 4;
+            background: #131313;
+            border: 1px solid rgba(233, 195, 73, 0.2);
+            z-index: 10;
+        }
+        .cell-title { font-size: 8px; font-weight: 800; }
+        .cell-main-star { font-size: 10px; font-weight: 700; line-height: 1.1; }
+        .cell-sub-star { font-size: 7px; line-height: 1; }
+        .cell-corner { font-size: 6px; }
+        body { min-height: max(884px, 100dvh); }
+    </style>
+    <!-- client.js contains jQuery, jsrender and zebra_tooltips -->
     <script src="{% static 'client.js' %}"></script>
 </head>
+<body class="bg-background text-on-surface font-body selection:bg-secondary/30 celestial-gradient min-h-screen pb-24">
 
-<body>
-
-    <div class="masthead">
-        <div class="container">
-            <h1 class="wordmark">
-                Chương trình lập lá số tử vi
-            </h1>
-            <div class="formborder">
-                <form id="lstv">
-                    <div class="grid thongtin">
-                        <div class="col col-3">
-                            Họ tên
-                        </div>
-                        <div class="col col-9">
-                            <input type="text" name="hoten" id="hoten">
-                        </div>
-                    </div>
-                    <div class="grid thongtin">
-                        <div class="col col-3">
-                            Giới tính
-                        </div>
-                        <div class="col col-9">
-                            <select name="gioitinh" id="gioitinh">
-                                <option value="nam">Nam</option>
-                                <option value="nu">Nữ</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="grid thongtin">
-                        <div class="col col-3">
-                            Ngày tháng năm sinh
-                        </div>
-                        <div class="col col-5">
-                            <select name="ngaysinh" id="ngaysinh">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                                <option value="19">19</option>
-                                <option value="20">20</option>
-                                <option value="21">21</option>
-                                <option value="22">22</option>
-                                <option value="23">23</option>
-                                <option value="24">24</option>
-                                <option value="25">25</option>
-                                <option value="26">26</option>
-                                <option value="27">27</option>
-                                <option value="28">28</option>
-                                <option value="29">29</option>
-                                <option value="30">30</option>
-                                <option value="31">31</option>
-                            </select> /
-                            <select name="thangsinh" id="thangsinh">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                            </select> /
-                            <input type="text" id="namsinh" name="namsinh" placeholder="Năm sinh">
-                        </div>
-
-                        <div class="col col-4">
-                            Âm lịch?
-                            <input type="checkbox" name="amlich">
-                        </div>
-                    </div>
-                    <div class="grid thongtin">
-                        <div class="col col-3">
-                            Giờ sinh
-                        </div>
-                        <div class="col col-3">
-                            <select name="giosinh" id="giosinh">
-                                <option selected="selected" value="1">Tí (23g - 1g)</option>
-                                <option value="2">Sửu (1g - 3g)</option>
-                                <option value="3">Dần (3g - 5g)</option>
-                                <option value="4">Mão (5g - 7g)</option>
-                                <option value="5">Thìn (7g - 9g)</option>
-                                <option value="6">Tị (9g - 11g)</option>
-                                <option value="7">Ngọ (11g - 13g)</option>
-                                <option value="8">Mùi (13g - 15g)</option>
-                                <option value="9">Thân (15g - 17g)</option>
-                                <option value="10">Dậu (17g - 19g)</option>
-                                <option value="11">Tuất (19g - 21g)</option>
-                                <option value="12">Hợi (21g - 23g)</option>
-                            </select>
-                        </div>
-                        <div class="col col-3">
-                            Múi giờ:
-                            <select name="muigio" id="muigio">
-                                <option value="-12">-12</option>
-                                <option value="-11">-11</option>
-                                <option value="-10">-10</option>
-                                <option value="-9">-9</option>
-                                <option value="-8">-8</option>
-                                <option value="-7">-7</option>
-                                <option value="-6">-6</option>
-                                <option value="-5">-5</option>
-                                <option value="-4">-4</option>
-                                <option value="-3">-3</option>
-                                <option value="-2">-2</option>
-                                <option value="-1">-1</option>
-                                <option value="0">0</option>
-                                <option value="1">+1</option>
-                                <option value="2">+2</option>
-                                <option value="3">+3</option>
-                                <option value="4">+4</option>
-                                <option value="5">+5</option>
-                                <option value="6">+6</option>
-                                <option value="7" selected>+7 (Vietnam)</option>
-                                <option value="8">+8</option>
-                                <option value="9">+9</option>
-                                <option value="10">+10</option>
-                                <option value="11">+11</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="grid">
-                        <input type="button" class="button primary" value="Lập lá số" id="laplaso">
-                    </div>
-                </form>
-            </div>
+    <!-- Top App Bar -->
+    <header class="fixed top-0 w-full z-50 bg-[#131313] flex justify-between items-center px-6 h-16 shadow-xl border-b border-outline-variant/10">
+        <div class="flex items-center gap-4">
+            <span class="material-symbols-outlined text-[#ffb3ac] hover:opacity-80 transition-opacity cursor-pointer">menu</span>
         </div>
-    </div>
-
-    <div class="anlaso laso border" id="laso">
-        <div class="grid">
-            <div class="col col-3">
-                <div class="container">
-                    <div class="grid diaCung border-bottom" cung-id="6" id="cungTy5">Tỵ</div>
-                    <div class="grid diaCung border-bottom" cung-id="5" id="cungThin">Thìn</div>
-                    <div class="grid diaCung border-bottom inset-border" cung-id="4" id="cungMao">Mão</div>
-                    <div class="grid diaCung" cung-id="3" id="cungDan">Dần</div>
-                </div>
-            </div>
-            <div class="col col-6">
-                <div class="container">
-                    <div class="grid">
-                        <div class="col col-6 diaCung border-left" cung-id="7" id="cungNgo">Ngọ</div>
-                        <div class="col col-6 diaCung border-left" cung-id="8" id="cungMui">Mùi</div>
-                    </div>
-
-                    <div class="grid thienBan border-top border-left border-bottom border-right" id="thienBan">
-
-                    </div>
-                    <div class="grid">
-                        <div class="col col-6 diaCung border-left" cung-id="2" id="cungSuu">
-                            Sửu
-                        </div>
-                        <div class="col col-6 diaCung border-left" cung-id="1" id="cungTy1">
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col col-3">
-                <div class="container">
-                    <div class="grid diaCung border-left border-bottom" cung-id="9" id="cungThan">Thân</div>
-                    <div class="grid diaCung border-bottom" cung-id="10" id="cungDau">Dậu</div>
-                    <div class="grid diaCung border-bottom" cung-id="11" id="cungTuat">Tuất</div>
-                    <div class="grid diaCung border-left" cung-id="12" id="cungHoi">Hợi</div>
-                </div>
-            </div>
+        <h1 class="font-manrope tracking-widest text-xl font-bold text-[#e9c349]">LẬP LÁ SỐ</h1>
+        <div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant/30">
+            <img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA87H4i__p4EJtA950Kc5ltHUlpa1rra60yu4xPxv5hAqQr0LIjeZ5hnyuGIty0jMctNoRgDD4KspCBPcb5cNdiEhYGD6-J0FUQFYvNvf0o-eDgU7AmchISqB2jWLr3CtTLfv89VSXyBm4ZHi-CodHmEMUbhRdH1k16YuoPGvMNGvKrdnfx5_9dqIMhOf67bFl-nqAnrdFhX0jzpz8EVqu2MCbTSQ7ntJVa0sil6dd5iYtBEDtSEZ4hJ982pZojSUJejd7-fRMkF_JC"/>
         </div>
-    </div>
-{% verbatim %}
+    </header>
+
+    <main class="pt-24 px-6 max-w-lg mx-auto">
+
+        <!-- VIEW 1: Form Lập Lá Số -->
+        <div id="view-form" class="view-section">
+            <div class="mb-10 text-center">
+                <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-surface-container-high mb-4 border border-outline-variant/10">
+                    <span class="material-symbols-outlined text-secondary text-3xl" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                </div>
+                <h2 class="font-headline text-3xl font-extrabold tracking-tight mb-2 text-on-surface">Khai Mở Bản Mệnh</h2>
+                <p class="text-on-surface-variant font-light text-sm opacity-80 italic">"Vận mệnh nằm trong tay kẻ hiểu thấu các vì sao."</p>
+            </div>
+            
+            <form id="laso-form" class="space-y-8">
+                <div class="space-y-2">
+                    <label class="text-secondary text-[10px] uppercase tracking-widest font-bold ml-1">Họ và tên</label>
+                    <div class="relative group">
+                        <input name="hoTen" id="hoTen" class="w-full bg-transparent border-0 border-b border-outline-variant/40 focus:border-secondary focus:ring-0 text-lg py-3 transition-all placeholder:text-on-surface-variant/30 font-medium" placeholder="Nhập tên của bạn..." type="text" value="A"/>
+                        <span class="material-symbols-outlined absolute right-0 top-1/2 -translate-y-1/2 text-on-surface-variant/40 group-focus-within:text-secondary">person</span>
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="text-secondary text-[10px] uppercase tracking-widest font-bold ml-1">Giới tính</label>
+                    <div class="grid grid-cols-2 gap-3">
+                        <input type="hidden" name="gioitinh" id="gioitinh" value="1">
+                        <button id="btn-male" class="btn-gioitinh flex items-center justify-center gap-2 py-3 rounded-xl border-2 border-secondary bg-surface-container-high text-secondary transition-all" type="button" onclick="setGender(1)">
+                            <span class="material-symbols-outlined text-sm">male</span>
+                            <span class="text-sm font-medium">Nam</span>
+                        </button>
+                        <button id="btn-female" class="btn-gioitinh flex items-center justify-center gap-2 py-3 rounded-xl border border-outline-variant/40 bg-surface-container-low text-on-surface-variant hover:border-secondary/50 hover:text-secondary transition-all" type="button" onclick="setGender(-1)">
+                            <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">female</span>
+                            <span class="text-sm font-bold">Nữ</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between p-4 rounded-xl bg-surface-container-low border border-outline-variant/20">
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary">calendar_month</span>
+                        <span class="text-sm font-medium">Lịch Dương</span>
+                    </div>
+                    <div class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" name="DuongLich" id="DuongLich" class="sr-only peer" checked value="1" />
+                        <div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-surface after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+                    </div>
+                    <div class="flex items-center gap-3 opacity-40">
+                        <span class="text-sm font-medium">Lịch Âm</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="space-y-2">
+                        <label class="text-on-surface-variant text-[10px] uppercase tracking-tighter font-semibold">Ngày</label>
+                        <select name="ngaysinh" id="ngaysinh" class="w-full bg-surface-container-low border-b border-outline-variant/40 focus:border-secondary focus:ring-0 text-sm py-2 rounded-lg appearance-none text-center">
+                            <!-- Populated via JS -->
+                        </select>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-on-surface-variant text-[10px] uppercase tracking-tighter font-semibold">Tháng</label>
+                        <select name="thangsinh" id="thangsinh" class="w-full bg-surface-container-low border-b border-outline-variant/40 focus:border-secondary focus:ring-0 text-sm py-2 rounded-lg appearance-none text-center">
+                            <!-- Populated via JS -->
+                        </select>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-on-surface-variant text-[10px] uppercase tracking-tighter font-semibold">Năm</label>
+                        <select name="namsinh" id="namsinh" class="w-full bg-surface-container-low border-b border-outline-variant/40 focus:border-secondary focus:ring-0 text-sm py-2 rounded-lg appearance-none text-center">
+                            <!-- Populated via JS -->
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-2">
+                        <label class="text-secondary text-[10px] uppercase tracking-widest font-bold ml-1">Giờ sinh</label>
+                        <div class="relative">
+                            <select name="giosinh" id="giosinh" class="w-full bg-surface-container-low border border-outline-variant/30 focus:border-secondary focus:ring-0 text-sm py-3 px-4 rounded-xl appearance-none">
+                                <option value="1">Giờ Tý (23h-01h)</option>
+                                <option value="2">Giờ Sửu (01h-03h)</option>
+                                <option value="3">Giờ Dần (03h-05h)</option>
+                                <option value="4">Giờ Mão (05h-07h)</option>
+                                <option value="5">Giờ Thìn (07h-09h)</option>
+                                <option value="6">Giờ Tỵ (09h-11h)</option>
+                                <option value="7">Giờ Ngọ (11h-13h)</option>
+                                <option value="8">Giờ Mùi (13h-15h)</option>
+                                <option value="9">Giờ Thân (15h-17h)</option>
+                                <option value="10">Giờ Dậu (17h-19h)</option>
+                                <option value="11">Giờ Tuất (19h-21h)</option>
+                                <option value="12" selected>Giờ Hợi (21h-23h)</option>
+                            </select>
+                            <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">expand_more</span>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-on-surface-variant text-[10px] uppercase tracking-widest font-bold ml-1">Múi giờ</label>
+                        <div class="relative">
+                            <select name="timeZone" id="timeZone" class="w-full bg-surface-container-low border border-outline-variant/30 focus:border-secondary focus:ring-0 text-sm py-3 px-4 rounded-xl appearance-none">
+                                <option value="7" selected>GMT +7 (VN)</option>
+                                <option value="8">GMT +8</option>
+                                <option value="9">GMT +9</option>
+                                <option value="10">GMT +10</option>
+                                <option value="11">GMT +11</option>
+                                <option value="-12">GMT -12</option>
+                                <option value="-11">GMT -11</option>
+                                <option value="-10">GMT -10</option>
+                                <option value="-9">GMT -9</option>
+                                <option value="-8">GMT -8</option>
+                                <option value="-7">GMT -7</option>
+                                <option value="-6">GMT -6</option>
+                                <option value="-5">GMT -5</option>
+                                <option value="-4">GMT -4</option>
+                                <option value="-3">GMT -3</option>
+                                <option value="-2">GMT -2</option>
+                                <option value="-1">GMT -1</option>
+                                <option value="0">GMT 0</option>
+                                <option value="1">GMT +1</option>
+                                <option value="2">GMT +2</option>
+                                <option value="3">GMT +3</option>
+                                <option value="4">GMT +4</option>
+                                <option value="5">GMT +5</option>
+                                <option value="6">GMT +6</option>
+                            </select>
+                            <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none text-sm">schedule</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-6">
+                    <button id="laplaso" class="w-full bg-primary-container text-on-primary-container font-manrope font-bold py-5 rounded-full shadow-lg shadow-primary-container/20 flex items-center justify-center gap-3 active:scale-95 transition-transform uppercase tracking-[0.15em] text-sm" type="button">
+                        <span class="material-symbols-outlined">stars</span>
+                        LẬP LÁ SỐ
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- VIEW 2: Lá Số Grid (Hidden by Default) -->
+        <div id="view-grid" class="view-section hidden relative mx-[-16px]">
+            <div class="fixed inset-0 cloud-pattern pointer-events-none hidden" id="grid-cloud"></div>
+            <section class="relative z-10 mx-auto w-full max-w-md">
+                <div class="astro-grid bg-outline-variant/20 rounded-lg overflow-hidden border border-outline-variant/30 shadow-2xl" id="laso-grid-container">
+                    
+                    <!-- Top Row -->
+                    <div id="cungTy5" class="diaCung" style="grid-area: 1 / 1 / 2 / 2" cung-id="6"></div>
+                    <div id="cungNgo" class="diaCung" style="grid-area: 1 / 2 / 2 / 3" cung-id="7"></div>
+                    <div id="cungMui" class="diaCung" style="grid-area: 1 / 3 / 2 / 4" cung-id="8"></div>
+                    <div id="cungThan" class="diaCung" style="grid-area: 1 / 4 / 2 / 5" cung-id="9"></div>
+
+                    <!-- Middle Left -->
+                    <div id="cungThin" class="diaCung" style="grid-area: 2 / 1 / 3 / 2" cung-id="5"></div>
+                    <div id="cungMao" class="diaCung" style="grid-area: 3 / 1 / 4 / 2" cung-id="4"></div>
+                    
+                    <!-- Middle Right -->
+                    <div id="cungDau" class="diaCung" style="grid-area: 2 / 4 / 3 / 5" cung-id="10"></div>
+                    <div id="cungTuat" class="diaCung" style="grid-area: 3 / 4 / 4 / 5" cung-id="11"></div>
+
+                    <!-- Bottom Row -->
+                    <div id="cungDan" class="diaCung" style="grid-area: 4 / 1 / 5 / 2" cung-id="3"></div>
+                    <div id="cungSuu" class="diaCung" style="grid-area: 4 / 2 / 5 / 3" cung-id="2"></div>
+                    <div id="cungTy1" class="diaCung" style="grid-area: 4 / 3 / 5 / 4" cung-id="1"></div>
+                    <div id="cungHoi" class="diaCung" style="grid-area: 4 / 4 / 5 / 5" cung-id="12"></div>
+
+                    <!-- Center Panel -->
+                    <div class="center-cell p-3 flex flex-col items-center justify-center text-center overflow-y-auto no-scrollbar" id="thienBan"></div>
+                </div>
+
+                <section class="mt-6 mb-8 relative z-10 px-2" id="grid-insights">
+                    <h3 class="text-[10px] font-headline font-bold text-on-surface-variant uppercase tracking-[0.3em] mb-4 text-center">Tóm Lược Cát Hung</h3>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="col-span-2 glass-panel p-4 rounded-xl border border-secondary/20 flex items-center gap-3">
+                            <div class="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-secondary/10 rounded-full text-secondary">
+                                <span class="material-symbols-outlined text-2xl">auto_awesome</span>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold text-secondary" id="summary-banmenh">-</h4>
+                                <p class="text-[10px] text-on-surface-variant leading-tight" id="summary-cuc">-</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </div>
+
+        <!-- VIEW 3: Giải Đoán Dashboard (Hidden) -->
+        <div id="view-dashboard" class="view-section hidden">
+            <section class="relative overflow-hidden rounded-3xl p-8 bg-surface-container-low min-h-[300px] flex flex-col justify-end mb-8">
+                <div class="absolute inset-0 z-0">
+                    <img class="w-full h-full object-cover opacity-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbppNc-YOLRn3GcxXXFoefsjCpuaNS1gijFbVqgnD67kqq-Fw0-w96tvdF4u02PGPOl6c7iWDjT8W5A9O1O85o-4xeHoWfs_43GeOPvfyCGkEC4wPFMLxXDIxrail9YT3vtdRfhIM_bZqK8Agb6ISuxetvpUoHDpQkwXBhb4R3eRSCr7oJdFQgXygYsqtk8Dp-6ZG3nz67scFPmV9MKe8lkSTKmNT34pMpxHgPsV7zMC1vitOYeU2XY3RlNUJH6wp2cd-t2kErFtnv"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
+                </div>
+                <div class="relative z-10 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <span class="bg-secondary-container/30 text-secondary px-3 py-1 rounded-sm text-[10px] font-bold tracking-widest uppercase font-label">Tổng quan</span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-headline font-extrabold text-on-surface tracking-tight" id="dash-banmenh">...</h2>
+                    <p class="text-on-surface-variant max-w-2xl leading-relaxed text-body-md" id="dash-desc">
+                        Vui lòng lập lá số để xem luận giải...
+                    </p>
+                    <div class="flex gap-4 pt-4">
+                        <div class="bg-surface-container-highest px-4 py-2 rounded-xl">
+                            <span class="block text-[10px] text-on-surface-variant uppercase font-semibold">Tên</span>
+                            <span class="text-secondary font-bold" id="dash-name">...</span>
+                        </div>
+                        <div class="bg-surface-container-highest px-4 py-2 rounded-xl">
+                            <span class="block text-[10px] text-on-surface-variant uppercase font-semibold">Cục</span>
+                            <span class="text-tertiary font-bold" id="dash-cuc">...</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Bottom Nav Bar -->
+    <nav class="fixed bottom-0 w-full z-50 rounded-t-3xl border-t border-[#e5e2e1]/10 bg-[#131313]/95 backdrop-blur-md flex justify-around items-center pt-3 pb-6 px-4">
+        <a href="javascript:switchTab('form')" id="tab-form" class="tab-link flex flex-col items-center justify-center text-[#e9c349] font-bold active:scale-90 duration-300">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+            <span class="font-be-vietnam-pro text-[10px] uppercase font-semibold tracking-wider mt-1">Trang chủ</span>
+        </a>
+        <a href="javascript:switchTab('grid')" id="tab-grid" class="tab-link flex flex-col items-center justify-center text-[#e5e2e1]/40 hover:text-[#ffb3ac] transition-colors active:scale-90">
+            <span class="material-symbols-outlined">auto_awesome</span>
+            <span class="font-be-vietnam-pro text-[10px] uppercase tracking-tighter mt-1">Lá Số</span>
+        </a>
+        <a href="javascript:switchTab('dashboard')" id="tab-dashboard" class="tab-link flex flex-col items-center justify-center text-[#e5e2e1]/40 hover:text-[#ffb3ac] transition-colors active:scale-90">
+            <span class="material-symbols-outlined">menu_book</span>
+            <span class="font-be-vietnam-pro text-[10px] uppercase tracking-tighter mt-1">Giải Đoán</span>
+        </a>
+    </nav>
+
+    <!-- JsRender Templates -->
+    {% verbatim %}
     <script id="cungDiaBan" type="text/x-jsrender">
-        <div class="grid cung-top">
-            <div class="col col-2 tooltips" title="Địa chi cung {{:cungTen}}">{{:cungTen}}</div>
-            <div class="col col-8">
-                <span class="cungChu">
-                {{:cungChu}}
-            </span> {{if cungThan == true}}
-                <span class="cungThan label">Thân</span> {{/if}}
-            </div>
-            <div class="col col-2 tooltips" title="Đại hạn {{:cungDaiHan}} - {{:(cungDaiHan+9)}}">{{:cungDaiHan}}</div>
-        </div>
-        <div class="grid cung-middle">
-            <div class="chinhTinh">
-                {{for cungSao}} {{if saoLoai == 1}}
-                <li class="{{:cssSao}}">{{:saoTen}} {{if saoDacTinh !== null}} ({{:saoDacTinh}}) {{/if}}
-                </li>
-                {{/if}} {{/for}}
-            </div>
-
-            <div class="phuTinh">
-                <div class="saotot">
-                    {{for cungSao}} {{if vongTrangSinh === 0 && saoLoai !==1 && saoLoai
-                    < 10}} <div class="grid">
-                        <div class="col {{:cssSao}}">
-                            {{:saoTen}} {{if saoDacTinh !== null}} ({{:saoDacTinh}}) {{/if}}
-                        </div>
+        <div class="palace-cell h-full w-full {{if cungId == 1}}border-l-2 border-l-secondary{{/if}}">
+            <div class="flex justify-between items-start mb-1 z-10">
+                <div class="flex items-center gap-1 overflow-hidden">
+                    <span class="cell-title {{if cungThan == true || cungId == 1}}text-secondary{{else}}text-on-surface{{/if}} uppercase truncate">{{:cungChu}}</span>
+                    {{if cungThan == true}}
+                        <span class="bg-secondary text-on-secondary px-0.5 rounded-sm text-[5px] font-bold uppercase z-10 flex-shrink-0 leading-none py-px">Thân</span>
+                    {{/if}}
                 </div>
-                {{/if}} {{/for}}
+                <span class="cell-corner text-on-surface-variant ml-1 flex-shrink-0">{{:cungTen}}</span>
             </div>
-            <div class="saoxau">
-                {{for cungSao}} {{if vongTrangSinh === 0 && saoLoai !==1 && saoLoai > 10}}
-                <div class="grid">
-                    <div class="{{:cssSao}}">
-                        {{:saoTen}} {{if saoDacTinh !== null}} ({{:saoDacTinh}}) {{/if}}
+            
+            <div class="flex-1 space-y-0.5 overflow-hidden z-10">
+                <!-- Chinh Tinh -->
+                {{for cungSao}}
+                    {{if saoLoai == 1}}
+                        <div class="cell-main-star {{if vongTrangSinh == 1 || (saoLoai > 10 && saoLoai != 1)}}text-error{{else}}text-primary{{/if}} truncate w-full" title="{{:saoTen}} {{if saoDacTinh !== null}} ({{:saoDacTinh}}) {{/if}}">
+                            {{:saoTen}}{{if saoDacTinh !== null}} ({{:saoDacTinh}}){{/if}}
+                        </div>
+                    {{/if}}
+                {{/for}}
+                
+                <!-- Phu Tinh (Tot & Xau) -->
+                <div class="mt-1 flex justify-between gap-1 text-[6px] overflow-hidden w-full h-full">
+                    <!-- Cát tinh -->
+                    <div class="flex flex-col items-start gap-y-0 w-1/2 overflow-hidden">
+                        {{for cungSao}}
+                            {{if vongTrangSinh === 0 && saoLoai !==1 && saoLoai < 10}}
+                                <span class="text-tertiary truncate max-w-full" title="{{:saoTen}}{{if saoDacTinh !== null}} ({{:saoDacTinh}}){{/if}}">{{:saoTen}}{{if saoDacTinh !== null}}({{:saoDacTinh}}){{/if}}</span>
+                            {{/if}}
+                        {{/for}}
+                    </div>
+                    <!-- Hung tinh & Tuần/Triệt -->
+                    <div class="flex flex-col items-end gap-y-0 w-1/2 overflow-hidden text-right">
+                        <div class="flex gap-0.5 justify-end w-full mb-0.5 flex-wrap">
+                            {{if trietLo == true}}<span class="text-error font-bold border border-error/30 rounded px-0.5 bg-error/10">Triệt</span>{{/if}}
+                            {{if tuanTrung == true}}<span class="text-on-surface font-bold border border-on-surface/30 rounded px-0.5 bg-on-surface/10">Tuần</span>{{/if}}
+                        </div>
+                        {{for cungSao}}
+                            {{if vongTrangSinh === 0 && saoLoai !==1 && saoLoai > 10}}
+                                <span class="text-error truncate max-w-full" title="{{:saoTen}}{{if saoDacTinh !== null}} ({{:saoDacTinh}}){{/if}}">{{:saoTen}}{{if saoDacTinh !== null}}({{:saoDacTinh}}){{/if}}</span>
+                            {{/if}}
+                        {{/for}}
                     </div>
                 </div>
-                {{/if}} {{/for}}
             </div>
-            <div class="tuanTriet">
-                {{if trietLo == true}}
-                <span class="label label-triet">Triệt</span> {{/if}} {{if tuanTrung == true}}
-                <span class="label label-tuan">Tuần</span> {{/if}}
-
+            
+            <div class="flex justify-between items-end mt-1 text-[6px] z-10">
+                <span class="text-on-surface-variant/60">{{:cungTieuHan}}</span>
+                {{for cungSao}}{{if vongTrangSinh == 1}}<span class="text-on-surface-variant max-w-[50%] truncate">{{:saoTen}}</span>{{/if}}{{/for}}
+                <span class="text-on-surface-variant/80 font-bold px-1 rounded bg-surface-container-high">{{if cungAmDuong == -1}}-{{else}}+{{/if}}{{:hanhCung}}</span>
             </div>
-        </div>
-        </div>
-        <div class="grid cung-bottom">
-            <div class="col col-3 tooltips" title="Tiểu hạn của năm {{:cungTieuHan}}">{{:cungTieuHan}}</div>
-            {{for cungSao}} {{if vongTrangSinh == 1}}
-            <div class="col col-6 {{:cssSao}}">
-                {{:saoTen}}
+            
+            {{if cungId == 1}}
+            <div class="absolute -bottom-1 -right-1 opacity-10 z-0">
+                <span class="material-symbols-outlined text-3xl">account_circle</span>
             </div>
-            {{/if}} {{/for}}
-            <div class="col col-3 tooltips" title="Cung ({{if cungAmDuong == -1}}âm{{else}}dương{{/if}}), ngũ hành {{:hanhCung}}">
-                {{if cungAmDuong == -1}}-{{else}}+{{/if}}{{:hanhCung}}
-            </div>
+            {{/if}}
         </div>
     </script>
 
     <script id="vungThienBan" type="text/x-jsrender">
-        <div class="noidung">
-            <div class="header">Ngày xem: {{:today}}</div>
-            <div class="grid">
-                <div class="col col-3 cotTrai">Họ tên</div>
-                <div class="col col-9 cotPhai">{{:ten}}</div>
+        <div class="mb-2 w-full border-b border-outline-variant/20 pb-2">
+            <h2 class="text-lg font-headline font-extrabold text-secondary leading-tight uppercase">{{:ten}}</h2>
+            <p class="text-[9px] text-on-surface-variant font-bold tracking-widest mt-1">{{:namsinh}} • {{:namNu}}</p>
+        </div>
+        <div class="w-full space-y-2 mt-1">
+            <div class="bg-surface-container-high/40 p-1.5 rounded border border-outline-variant/10 text-left">
+                <p class="text-[7px] text-on-surface-variant uppercase">Dương lịch</p>
+                <p class="text-[9px] font-bold text-on-surface">{{:ngayDuong}}/{{:thangDuong}}/{{:namDuong}}</p>
             </div>
-
-            <div class="grid">
-                <div class="col col-3 cotTrai">Bát tự</div>
-                <div class="col col-9 cotPhai">Năm {{:canNamTen}} {{:chiNamTen}}, tháng {{:canThang}} {{:chiThang}} {{if thangNhuan == 1}} (nhuận) {{/if}}, ngày {{:canNgay}} {{:chiNgay}}, giờ {{:gioSinh}}</div>
+            <div class="bg-surface-container-high/40 p-1.5 rounded border border-outline-variant/10 text-left">
+                <p class="text-[7px] text-on-surface-variant uppercase">Âm lịch</p>
+                <p class="text-[9px] font-bold text-secondary">{{:ngayAm}}/{{:thangAm}}/{{:canNamTen}} {{:chiNamTen}}</p>
             </div>
-
-            <div class="grid">
-                <div class="col col-3 cotTrai">Tuổi</div>
-                <div class="col col-9 cotPhai">{{:amDuongNamSinh}} {{:namNu}} ({{:amDuongMenh}})</div>
-            </div>
-
-            <div class="grid">
-                <div class="col col-3 cotTrai">Ngày sinh</div>
-                <div class="col col-9 cotPhai">
-                    <div>{{:ngayAm}}/{{:thangAm}}/{{:canNamTen}} {{:chiNamTen}} (Âm lịch)</div>
-                    <div>{{:ngayDuong}}/{{:thangDuong}}/{{:namDuong}} (Dương lịch)</div>
+            <div class="grid grid-cols-2 gap-1 mt-2">
+                <div class="bg-secondary/10 p-1 rounded border border-secondary/20">
+                    <p class="text-[6px] text-secondary uppercase">Bản Mệnh</p>
+                    <p class="text-[8px] font-black text-secondary">{{:banMenh}}</p>
+                </div>
+                <div class="bg-tertiary/10 p-1 rounded border border-tertiary/20">
+                    <p class="text-[6px] text-tertiary uppercase">Cục</p>
+                    <p class="text-[8px] font-black text-tertiary">{{:tenCuc}}</p>
                 </div>
             </div>
-
-            <div class="grid">
-                <div class="col col-3 cotTrai">Bản mệnh</div>
-                <div class="col col-9 cotPhai">
-                    {{:banMenh}}
-                </div>
+            <div class="mt-2 text-[8px] font-bold {{if amDuongMenh.indexOf('Nghịch') !== -1}}text-error bg-error/5 border-error/10{{else}}text-tertiary bg-tertiary/5 border-tertiary/10{{/if}} py-1 px-2 rounded-full border">
+                {{:amDuongMenh}}
             </div>
-
-            <div class="grid">
-                <div class="col col-3 cotTrai">Cục</div>
-                <div class="col col-9 cotPhai">
-                    {{:tenCuc}}
-                </div>
+            <div class="mt-1 text-[8px] font-bold text-on-surface-variant bg-surface-container-highest py-1 px-2 rounded-full border border-outline-variant/20">
+                Mệnh Chủ: {{:menhChu}} • Thân Chủ: {{:thanChu}}
             </div>
-
-            <div class="grid">
-                <div class="col col-3 cotTrai">Mệnh chủ</div>
-                <div class="col col-9 cotPhai">
-                    {{:menhChu}}
-                </div>
-            </div>
-
-            <div class="grid">
-                <div class="col col-3 cotTrai">Thân chủ</div>
-                <div class="col col-9 cotPhai">
-                    {{:thanChu}}
-                </div>
-            </div>
-
-            <div class="grid sinhkhac">
-                {{:sinhKhac}}
-            </div>
-
-            <div class="mausac">
-                <div class="grid">
-                    <span class="col col-2">Màu sắc</span>
-                    <span class="col col-2 hanhKim gioithieuhanh">Kim</span>
-                    <span class="col col-2 hanhThuy gioithieuhanh">Thủy</span>
-                    <span class="col col-2 hanhHoa gioithieuhanh">Hỏa</span>
-                    <span class="col col-2 hanhTho gioithieuhanh">Thổ</span>
-                    <span class="col col-2 hanhMoc gioithieuhanh">Mộc</span>
-                </div>
-            </div>
+        </div>
     </script>
-{% endverbatim %}
-</body>
+    {% endverbatim %}
 
+    <script>
+        // Init form options
+        for(let i=1; i<=31; i++) $('#ngaysinh').append(`<option value="${i}" ${i === 9 ? 'selected' : ''}>${i}</option>`);
+        for(let i=1; i<=12; i++) $('#thangsinh').append(`<option value="${i}" ${i === 7 ? 'selected' : ''}>Tháng ${i}</option>`);
+        for(let i=1930; i<=2050; i++) $('#namsinh').append(`<option value="${i}" ${i === 2001 ? 'selected' : ''}>${i}</option>`);
+        
+        function setGender(val) {
+            $('#gioitinh').val(val);
+            const activeClasses = 'border-2 border-secondary bg-surface-container-high text-secondary';
+            const inactiveClasses = 'border border-outline-variant/40 bg-surface-container-low text-on-surface-variant';
+            
+            if(val === 1) {
+                $('#btn-male').removeClass(inactiveClasses).addClass(activeClasses);
+                $('#btn-female').removeClass(activeClasses).addClass(inactiveClasses);
+            } else {
+                $('#btn-female').removeClass(inactiveClasses).addClass(activeClasses);
+                $('#btn-male').removeClass(activeClasses).addClass(inactiveClasses);
+            }
+        }
+
+        function switchTab(tabId) {
+            $('.view-section').addClass('hidden');
+            $('#view-' + tabId).removeClass('hidden');
+
+            $('.tab-link').removeClass('text-[#e9c349] font-bold').addClass('text-[#e5e2e1]/40');
+            $('.tab-link span.material-symbols-outlined').css('font-variation-settings', "'FILL' 0");
+            
+            $('#tab-' + tabId).removeClass('text-[#e5e2e1]/40').addClass('text-[#e9c349] font-bold');
+            $('#tab-' + tabId + ' span.material-symbols-outlined').css('font-variation-settings', "'FILL' 1");
+        }
+    </script>
+</body>
 </html>
